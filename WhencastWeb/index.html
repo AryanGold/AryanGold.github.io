@@ -1,0 +1,44 @@
+﻿<!--  Development by AryanGold.com 2017 (Iaroslav Burlii) avokado64@gmail.com -->
+
+<!DOCTYPE html>
+<html ng-app="officeAddin">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Whencast</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Third party dependencies. -->
+    <script src="AryanGold/scripts/ThirdParty/jquery/jquery.min.js"></script>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js"></script>
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="AryanGold/scripts/ThirdParty/angular.js/angular-material.min.css">
+
+    <link rel="stylesheet" href="AryanGold/assets/styles.css">
+</head>
+<body>
+
+    <div ng-controller="indexController" layout="column" ng-cloak="" id="mainContainer">
+        <div ng-bind-html="whenCastEmbedCode | HTML_filter_trusted"></div>
+    </div>
+
+
+    <!--###################################################################################################-->
+    <!--Include angular stuffs in finish of the Body, as recommended: https://docs.angularjs.org/guide/bootstrap -->
+    <script src="AryanGold/scripts/ThirdParty/angular.js/angular.min.js"></script>
+    <script src="AryanGold/scripts/ThirdParty/angular.js/angular-route.min.js"></script>
+    <script src="AryanGold/scripts/ThirdParty/angular.js/angular-animate.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="AryanGold/scripts/ThirdParty/angular.js/angular-aria.min.js"></script>
+    <script src="AryanGold/scripts/ThirdParty/angular.js/angular-messages.min.js"></script>
+    <script src="AryanGold/scripts/ThirdParty/angular.js/svg-assets-cache.js"></script>
+    <script src="AryanGold/scripts/ThirdParty/angular.js/angular-material.min.js"></script>
+    <!-- App code -->
+    <script src="AryanGold/scripts/app.js"></script>
+    <script src="AryanGold/scripts/app.routes.js"></script>
+    <script src="AryanGold/pages/index.controller.js"></script>
+
+</body>
+</html>

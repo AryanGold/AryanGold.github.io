@@ -1,0 +1,11 @@
+/*For disable horizontal scrolling */
+html, body 
+{
+    max-width: 100%;
+    height:100%;
+    overflow-x: hidden; /*disable any scrolling in OfficeAdd-in iframe */
+    overflow-y:hidden;
+    margin:0px;
+    background-color:transparent;
+    font-size:20px;
+}

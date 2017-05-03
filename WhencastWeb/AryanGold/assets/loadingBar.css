@@ -1,0 +1,10 @@
+
+/*
+Overload CSS for loadin-bar.
+Hide spiner for loading bar
+Details see: https://github.com/chieffancypants/angular-loading-bar
+Thus showing only horizontal line loading.
+*/
+#loading-bar-spinner .spinner-icon {
+    display:none;
+}
