@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Created:ce44715c-8c4e-446b-879c-ea9ebe0f09c8-->
+<OfficeApp 
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+          xsi:type="ContentApp">
+
+  <!-- See https://github.com/OfficeDev/Office-Add-in-Commands-Samples for documentation-->
+
+  <!-- BeginBasicSettings: Add-in metadata, used for all versions of Office unless override provided -->
+
+  <!--IMPORTANT! Id must be unique for your add-in. If you clone this manifest ensure that you change this id to your own GUID -->
+  <Id>581ce143-cf7f-41f6-a385-94bdfc61160e</Id>
+
+  <!--Version of add-in -->
+  <Version>1.0.0.0</Version>
+  <ProviderName>AryanGold</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various placed of the Office UI such as the add-ins dialog -->
+  <DisplayName DefaultValue="Whencast" />
+  <Description DefaultValue="Whencast"/>
+  <IconUrl DefaultValue="https://aryangold.github.io/WhencastWeb/Images/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://aryangold.github.io/WhencastWeb/Images/icon-64.png" />
+
+
+  <!-- Allowed domains -->
+  <AppDomains>
+    <AppDomain>https://studio.whenhub.com</AppDomain>
+    <AppDomain>https://cdn.whenhub.com</AppDomain>
+    <AppDomain>AppDomain3</AppDomain>
+  </AppDomains>
+  <!--EndBasicSettings. -->
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://aryangold.github.io/WhencastWeb/index.html" />
+    <RequestedWidth>1000</RequestedWidth>
+    <RequestedHeight>700</RequestedHeight>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+</OfficeApp>
