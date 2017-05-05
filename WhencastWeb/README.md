@@ -9,7 +9,7 @@ How to test the Whencast Office add-in without downloading in the Microsoft Stor
 ### Test in Office 365 Online
 1. Download the Manifest file: https://aryangold.github.io/WhencastWeb/Whencast.xml
 2. Open Office 365 Online Excel, and create a document.
-3. You should upload the Manifest into a document, menu: Insert -> Office Add-ins -> Upload My Add-in, and choose “Save Manifest file”.
+3. You should upload the Manifest into a document, menu: Insert -> Office Add-ins -> Upload My Add-in, and choose “Upload”.
 4. As a result, the Add-in will be inserted into a document and window of Whencast embed code will appear on the screen.
 
 ### Test in Office Desktop
