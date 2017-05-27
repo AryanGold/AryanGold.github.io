@@ -84,10 +84,10 @@
 
 
     // Run it here for works in Chrome in Apache server for debug only
-    $(document).ready(function ()
+    /*$(document).ready(function ()
     {
         // If we run in brouser, without Office - allow work with app in brouser too.
         initOthers();
-    });
+    });*/
 
 })();
