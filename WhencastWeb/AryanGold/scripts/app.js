@@ -71,10 +71,14 @@
         isStuffsInited = true;
 
 
-        // Auto-ppen main dialog
+        // Auto-open main dialog if just insert add-in
         if (!isAddinOpened)
         {
             angular.element(document.getElementById('mainContainer')).scope().showMainDialog();
+        }
+        else // is we open document, try load Whencast from this document
+        {
+            angular.element(document.getElementById('mainContainer')).scope().loadWhencastFromDocument();
         }
     };
 
