@@ -70,7 +70,6 @@
         }
         isStuffsInited = true;
 
-
         // Auto-open main dialog if just insert add-in
         if (!isAddinOpened)
         {

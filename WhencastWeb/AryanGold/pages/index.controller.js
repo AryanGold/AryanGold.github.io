@@ -64,21 +64,6 @@
                 $mdDialog.hide(modifiedEmbedCode);  // this store embed code in  "$scope.showMainDialog = function (ev) { then..."
             };
         }
-
-        // Validate and prepare Whencast embed code. Return prepared embed code if success
-        function validateAndPrepare_embedCode(_whencastEmbedCode)
-        {
-            // Check if embed code is valid, for example must have URL to script...
-            if (!_whencastEmbedCode || !_whencastEmbedCode.length || _whencastEmbedCode.search('https://cdn.whenhub.com/v1/embed.js') < 0)
-            {
-                return 0;
-            }
-
-            // Inject modifed the embed script for for with dynamically loading in Angular..
-            var modifiedEmbedCode = _whencastEmbedCode.replace('https://cdn.whenhub.com/v1/embed.js', 'AryanGold/scripts/embed.js');
-
-            return modifiedEmbedCode;
-        }
         //////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -93,12 +78,33 @@
             var modifiedEmbedCode = validateAndPrepare_embedCode(whencastEmbedCode);
             if (!modifiedEmbedCode)
             {
+                console.log('>>> Not found Whencast embed code in the current document');
+                $scope.showMainDialog();    // If not found Whencast embed code in the current document then open dialog for insert embed code
+
                 return;
             }
 
-            $scope.whenCastEmbedCode = modifiedEmbedCode;
-        }
+            // Use delay before update $scope variable, because the function loadWhencastFromDocument() may called before IndexController initialize.
+            // And we must wait a little for complete initialize IndexController.
+            $timeout(function ()
+            {
+                $scope.whenCastEmbedCode = modifiedEmbedCode;
+            }, 500);
+        };
         ///////////////////////////////////////////////
+
+        // Validate and prepare Whencast embed code. Return prepared embed code if success
+        function validateAndPrepare_embedCode(_whencastEmbedCode) {
+            // Check if embed code is valid, for example must have URL to script...
+            if (!_whencastEmbedCode || !_whencastEmbedCode.length || _whencastEmbedCode.search('https://cdn.whenhub.com/v1/embed.js') < 0) {
+                return 0;
+            }
+
+            // Inject modifed the embed script for for with dynamically loading in Angular..
+            var modifiedEmbedCode = _whencastEmbedCode.replace('https://cdn.whenhub.com/v1/embed.js', 'AryanGold/scripts/embed.js');
+
+            return modifiedEmbedCode;
+        }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         // Store/load Whencast embed code to document
