@@ -108,10 +108,27 @@
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         // Store/load Whencast embed code to document
+        // https://dev.office.com/docs/add-ins/develop/persisting-add-in-state-and-settings
         function saveEmbedCodeToDocument(whencastEmbedCode)
         {
+            // First save to memory only!
             Office.context.document.settings.set('whencastEmbedCode', whencastEmbedCode);
+
+            // Save from memory to the document
+            Office.context.document.settings.saveAsync(function (asyncResult)
+            {
+                if (asyncResult.status == Office.AsyncResultStatus.Failed)
+                {
+                    console.log('>>> Embed code save failed. Error: ' + asyncResult.error.message);
+                }
+                else
+                {
+                    console.log('>>> Embed code saved');
+                }
+            });
         }
+        // Before call this function first time, need also refresh data from document to memory, details:
+        // https://dev.office.com/reference/add-ins/shared/settings.refreshasync
         function loadEmbedCodeFromDocument()
         {
             return Office.context.document.settings.get('whencastEmbedCode');

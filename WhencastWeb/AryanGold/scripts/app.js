@@ -77,7 +77,21 @@
         }
         else // is we open document, try load Whencast from this document
         {
-            angular.element(document.getElementById('mainContainer')).scope().loadWhencastFromDocument();
+            // Before load data from document, need call refreshAsync() which refresh data from document to memory
+            Office.context.document.settings.refreshAsync(function (asyncResult)
+            {
+                // If unsecces refresh, then show dialog for insert new Whencast embed code
+                if (asyncResult.status == Office.AsyncResultStatus.Failed)
+                {
+                    console.log('>>> Unsuccess refresh data from document. Error: ' + asyncResult.error.message);
+
+                    angular.element(document.getElementById('mainContainer')).scope().showMainDialog();
+                }
+                else
+                {
+                    angular.element(document.getElementById('mainContainer')).scope().loadWhencastFromDocument();
+                }
+            });
         }
     };
 
